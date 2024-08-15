@@ -1,0 +1,304 @@
+body {
+    font-family: 'Times New Roman';
+    margin: 80px;
+    background-color: #ececec;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;;
+}
+
+.block{
+    background-color: #ffffff;
+}
+
+header {
+    
+    background-color: #f0f0f0;
+    background-image: url('top.png');
+    background-size: cover;
+    background-position: center;
+    height: 570px;
+   
+}
+
+.top{
+    display: flex;
+    color: #e04d4d;
+    font-family: 'Times New Roman';
+    
+}
+ 
+header img{
+    width: 140px;
+    height: 70px;
+    text-align: left;
+    padding-left: 30px;
+    
+}
+
+.English{
+    background-color: transparent;
+    height: 50px;
+    width: 250px;
+    color: #000000;
+    font-size: 0.5em;
+    
+
+}
+
+.arrow-container{
+    font-size: small;
+    text-align: center;
+}
+ .arrow {
+    background-color: transparent;
+    display: inline-block;
+    margin-right: 30px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+ }
+
+ .down-arrow {
+    transform: rotate(135deg);
+    margin-left: 8px;
+    margin-bottom: 3px;
+ }
+
+header h1 {
+    font-size: 70px;
+    font-family: 'Times New Roman';
+    text-align: center;
+    
+}
+
+header p {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+    text-align: center;
+
+}
+
+header button {
+    background-color: #146152;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    margin-left: 42%;
+    cursor: pointer;
+    
+}
+
+header h6{
+    text-align: center;
+}
+
+.hero {
+    background-image: url('1.png');
+    background-repeat: no-repeat;
+    margin-left: 250px;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+
+
+.hero-text {
+    color: rgb(0, 0, 0);
+    padding-left: 370px;
+    margin-top: 0;
+    font-family: 'Times New Roman';
+    
+}
+
+.hero-text h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.hero-text p {
+    
+    font-size: 17px;
+    margin: 10px 0;
+    line-height: 20px;
+}
+
+.hero button{
+    background-color: #146152;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.click{
+    display: flex;
+}
+
+.click-text img{
+    width: 300px;
+    height: 300px;
+    padding-left: 670px;
+    padding-top: 100px;
+    
+}
+
+.click-text h2{
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 160px;
+    font-size: 40px;
+    font-family: 'Times New Roman';
+}
+
+.click-text p{
+    position: absolute;
+    margin-top: 260px;
+    margin-left: 200px;
+    font-size: 17px;
+    font-family: 'Times New Roman';
+}
+
+.apps{
+    display: flex;
+}
+
+.apps img{
+    height: 300px;
+    width: 300px;
+    padding-left: 200px;
+    padding-top: 130px;
+}
+
+.apps-text {
+    margin-left: 100px;
+    margin-top: 50px;
+    font-family: 'Times New Roman';
+}
+
+.apps-text h2{
+    font-size: 40px;
+}
+
+.apps-text p{
+    font-size: 17px;
+    
+}
+
+.os{
+    display: flex;
+    background-color: #ffffff;
+    width: 350px;
+    height: 35px;
+    padding-bottom: 15px;
+    
+}
+.fix-div{
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background-color: aliceblue;
+    border-radius: 3px;
+}
+
+.fix-div img{
+    width: 17px;
+    height: 17px;
+    padding-top: 10px;
+    padding-left: 8px;
+}
+
+.apps-text a{
+    font-size: 15px;
+    text-decoration: underline;
+    color: rgb(22, 138, 37);
+    
+}
+
+.apps-text button{
+    margin-top: 20px;
+    background-color: #146152;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 200px;
+}
+
+.feature {
+    width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature img {
+    width: 260px;
+    height: 130px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.feature p {
+    font-size: 15px;
+    margin: 20px 0;
+    line-height: 20px;
+
+}
+
+.features a{
+    padding-top: 50px;
+    padding-left: 370px;
+    font-size: 15px;
+    text-decoration: underline;
+    color: rgb(22, 138, 37);
+}
+
+.servers {
+    
+    padding-top: 100px;
+    
+}
+
+.servers h2 {
+    font-size: 36px;
+    margin-left: 350px;
+    margin-top: 100px;
+    position: absolute;
+    
+}
+
+.servers img {
+    width: 1190px;
+    height: 710px;
+    margin-top: 20px;
+    background-size: cover;
+}
+
+.servers a{
+    padding-top: 650px;
+    padding-left: 450px;
+    position: absolute;
+    font-size: 15px;
+    text-decoration: underline;
+    color: rgb(22, 138, 37);
+}
+
