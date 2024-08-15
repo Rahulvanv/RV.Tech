@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Web Page</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #071d4d;
+            color: #fff;
+        }
+
+        .top {
+            background-color: #f1f1f1;
+            color: #080808;
+            padding-left: 400px;
+            padding-top: 10px;
+            width: 110%;
+            height: 25px;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 20px;
+            
+        }
+        
+        .form-group {
+            width: 45%;
+            padding: 40px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+
+       
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafbfc;
+            color: #080808;
+        }
+
+        .form-group textarea {
+            height: 250px;
+        }
+
+        .form-group button {
+            padding: 10px 49%;
+            border: none;
+            border-radius: 3px;
+            background-color: #18f111;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .todo-list {
+            width: 45%;
+            
+        }
+ 
+        .todo-title{
+            display: flex;
+            width: 530px;
+            justify-content: space-between ;
+            margin-left: 38px;
+            
+        }
+        .todo-item {
+            display: flex;
+            width: 500px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            color: #080808;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            background-color: #ffffff;
+        }
+
+        .span{
+            width: 530px;
+            height: 1px;
+            margin-left: 38px;
+            background-color: #f1f1f1;
+
+        }
+        .todo-item button {
+            padding: 5px 13px;
+            border: none;
+            border-radius: 3px;
+            background-color: #ff1605;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">To-Do List Web Page</div>
+
+    <div class="container">
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Title" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <button id="add-todo">Save</button>
+        </div>
+        <div class="todo-list">
+            <div class="todo-title">
+            <h4>Title</h4>
+            <h4>Description</h4>
+            <h4>Delete</h4>
+        </div>
+        <div class="span"></div>
+            <ul id="todo-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        const todoItems = document.getElementById('todo-items');
+        const addTodoButton = document.getElementById('add-todo');
+
+        addTodoButton.addEventListener('click', () => {
+            const title = document.getElementById('title').value;
+            
+            const description = document.getElementById('description').value;
+
+            if (title.trim() === '') {
+                alert("Please enter a title.");
+                return;
+            }
+
+            const newTodoItem = document.createElement('li');
+            newTodoItem.classList.add('todo-item');
+            newTodoItem.innerHTML = `
+                <div class="title">${title}</div>
+                <div class="description">${description}</div>
+                <button class="delete-button">X</button>
+            `;
+
+            todoItems.appendChild(newTodoItem);
+
+            const deleteButton = newTodoItem.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                todoItems.removeChild(newTodoItem);
+            });
+
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+        });
+    </script>
+</body>
+</html>
