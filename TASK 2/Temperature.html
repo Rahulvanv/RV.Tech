@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Temperature Converter App</title>
+
+    <style>
+        /*style.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #d0d0fffa;
+  color: #222;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.title {
+  color: #222;
+  font-size: 2rem;
+  text-align: center;
+}
+.temperature-converter {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: rgba(98, 165, 241, 0.89) 2.8px 2.8px 3.4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 100px 100px;
+  min-width: 320px;
+  width: 100%;
+  height: auto;
+}
+.result {
+
+  margin: 20px 0;
+}
+.result-heading {
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.celsius-value {
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+}
+label {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+input,
+select {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.degree-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.degree-field {
+    
+  display: flex;
+  flex-direction: column;
+  width: 46%;
+}
+option {
+  background-color: #d7d6f5;
+  color: #080808;
+}
+#convert-btn {
+  background:rgb(28, 85, 241);
+  border: none;
+  outline: none;
+  border-radius: 11px;
+  color: #f6f6f6;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 15px 80px;
+  
+}
+#convert-btn:hover {
+  background: linear-gradient(to bottom, #4a47e7, #322fda);
+}
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="temperature-converter">
+          <h1 class="title">Temperature Converter</h1><br>
+          
+          <div class="degree-type">
+            <div class="degree-field">
+              <label for="degree">Degrees</label><br>   
+              <input type="number" name="degree" id="degree" />
+            </div>
+            <div class="temp-field">
+              <label for="temp-type">Type</label><br><br>
+              <select name="temperatures" id="temp-type" autocomplete="on">
+                <option id="fahrenheit" value="fahrenheit">Fahrenheit</option>
+                <option id="kelvin" value="kelvin">Kelvin</option>
+              </select>
+            </div>
+           
+          </div>
+          <div class="result">
+            <span class="result-heading">Result</span>
+            <h2 class="celsius-value" id="celsius"></h2>
+          </div>
+          <button id="convert-btn">Convert</button>
+      </div>
+    </div>
+    <!--LINK JAVASCRIPT FILE-->
+    <script>
+        // script.js
+const celsiusElem = document.querySelector("#celsius");
+const degree = document.querySelector("#degree");
+const convertBtn = document.querySelector("#convert-btn");
+const tempType = document.querySelector("#temp-type");
+
+window.addEventListener("load", () => {
+  degree.value = "";
+  celsiusElem.innerHTML = "";
+});
+
+convertBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  convertToCelsius();
+});
+
+function convertToCelsius() {
+  let inputValue = degree.value;
+
+if (tempType.value === "fahrenheit") {
+    const FahrenheitToCelsius = (inputValue - 32) * (5 / 9);
+    celsiusElem.innerHTML = `${FahrenheitToCelsius.toFixed(3)} &deg;c`;
+  } else if (tempType.value === "kelvin") {
+    const KelvinToCelsius = inputValue - 273.15;
+    celsiusElem.innerHTML = `${KelvinToCelsius.toFixed(3)} &deg;c`;
+  }
+}
+    </script>
+  </body>
+</html>
