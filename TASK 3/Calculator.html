@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    /* Add some basic styling to make the calculator look decent */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #3e99fa;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        
+    }
+    #calculator {
+        background-color: #c8daf1;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    #screen {
+        width: 95%;
+        height: 70px;
+        border: none;
+        background-color: #92bcf7;
+        color: #000;
+        text-align: right;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 2rem;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .top button{
+        background-color: #69a6fc;
+        width: 70px;
+        height: 50px;
+    }
+    button {
+        
+        width: 70px;
+        height: 70px;
+        margin: 7px;
+        background-color: #93befa;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        color: #121213;;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+   
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <input id="screen" type="text" readonly />
+    <div class="top">
+      <div class="top">
+      <button value="(">(</button>
+      <button value=")">)</button>
+      <button value="ans">ans</button>
+      <button value="del">del</button>
+      <button value="clear">clear</button>
+    </div>
+
+    </div>
+    <div>
+      <button value="7">7</button>
+      <button value="8">8</button>
+      <button value="9">9</button>
+      <button value="%" style="background-color: #69a6fc; color: #006aff;">%</button>
+      <button value="√" style="background-color: #69a6fc;">√</button>
+
+      
+    </div>
+    <div>
+      <button value="4">4</button>
+      <button value="5">5</button>
+      <button value="6">6</button>
+      <button value="*" style="background-color: #69a6fc; color: #006aff;">x</button>
+      <button value="/" style="background-color: #69a6fc;color: #006aff;">÷</button>
+    </div>
+    <div>
+      <button value="1">1</button>
+      <button value="2">2</button>
+      <button value="3">3</button>
+      <button value="+" style="background-color: #69a6fc;color: #006aff;">+</button>
+      <button value="-" style="background-color: #69a6fc;color: #006aff;">-</button>
+    </div>
+    <div>
+      <button value="." style="background-color: #69a6fc;color: #006aff;">.</button>
+      <button value="0">0</button>
+      <button value="+/-" style="background-color: #69a6fc;color: #006aff;">±</button>
+      <button value="=" style="background-color: #0869f0; color: rgb(228, 217, 202); width: 160px;">ENTER</button>
+      
+    </div>
+  </div>
+
+  <!-- Add the JavaScript code here -->
+  <script>
+   
+        const screen = document.getElementById('screen');
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.value;
+                const current = screen.value;
+
+                if (value === 'clear') {
+                    screen.value = '';
+                } else if (value === 'del') {
+                    screen.value = current.slice(0, -1);
+                } else if (value === '=') {
+                    try {
+                        screen.value = eval(current);
+                    } catch {
+                        screen.value = 'Error';
+                    }
+                } else if (value === '√') {
+                    try {
+                        screen.value = Math.sqrt(eval(current));
+                    } catch {
+                        screen.value = 'Error';
+                    }
+                } else if (value === 'ans') {
+                    if (localStorage.getItem('lastResult')) {
+                        screen.value = localStorage.getItem('lastResult');
+                    }
+                } else if (value === '+/-') {
+                    if (current.startsWith('-')) {
+                        screen.value = current.slice(1);
+                    } else {
+                        screen.value = '-' + current;
+                    }
+                } else {
+                    screen.value += value;
+                }
+            });
+        });
+
+        // Store the last result in local storage when the '=' button is clicked
+        document.addEventListener('click', (e) => {
+            if (e.target.value === '=') {
+                localStorage.setItem('lastResult', screen.value);
+            }
+        });
+
+  </script>
+</body>
+</html>
